@@ -1,19 +1,14 @@
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
 
 $custom-spacers: (
   // 130px
   6: $spacer * 8.125
 );
-
 $spacers: map-merge($spacers, $custom-spacers);
 
-// @import "../../node_modules/bootstrap/scss/_variables-dark.scss";
-// @import "../../node_modules/bootstrap/scss/_maps.scss";
-// @import "../../node_modules/bootstrap/scss/_mixins.scss";
-// @import "../../node_modules/bootstrap/scss/_utilities.scss";
-
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 @include media-breakpoint-down(md) {
   .main-heading-details {
@@ -28,4 +23,9 @@ div.headline-row {
 div.headline-row div {
   // width: 756px;
   width: 39.375%;
+}
+
+.artWorkCards:hover {
+  cursor: pointer;
+  box-shadow: 0px 4px 39px 0px rgba(0, 0, 0, 0.12);
 }

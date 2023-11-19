@@ -29,7 +29,7 @@ export default function HeadLine() {
         <div className="col-6 h-100 w-100 z-3">
           <h1 className="mt-5 ms-2 main-heading-details">Fine Art Gala</h1>
           <p className="lead mx-2 main-heading-details">Come take a look at different pieces. See what catches your eye!</p>
-          <button className="mt-3 ms-2">Button</button>
+          <button className="btn btn-secondary mt-3 ms-2">Button</button>
         </div>
         <div className="bg-secondary col-6 h-100 w-100 position-absolute">
           <img src={headlineImage.primaryImage} className="img-fluid h-100 md-rounded mx-auto d-block" alt={headlineImage.title} />
