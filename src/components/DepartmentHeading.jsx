@@ -1,8 +1,6 @@
-import React from 'react';
-
-export default function DepartmentHeading({ department }) {
+export default function DepartmentHeading({ id, department }) {
 
   return (
-    <h2 className="display-2 mt-5">{department}</h2>
+    <h2 id={id} className="display-2 mt-5">{department}</h2>
   )
 }
