@@ -99,12 +99,14 @@ export default function HomePage() {
       const artValues = Object.values(artInd)[0];
       artHeadingAndCards.push(
         <DepartmentHeading key={`${artInd}-${ind}`} department={Object.keys(artInd)[0]} />,
-        Object.values(artValues).map((value, ind) => (
-          <ArtworkCard 
-            key={`card-${ind}`} 
-            details={ value }
-          />
-        ))
+        <div className='row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-6'>
+          {Object.values(artValues).map((value, ind) => (
+            <ArtworkCard 
+              key={`card-${ind}`} 
+              details={ value }
+            />
+          ))}
+        </div>
       )
     })
     return artHeadingAndCards;
@@ -145,7 +147,7 @@ export default function HomePage() {
     <div className='d-flex flex-column overflow-x-hidden'>
       <HeadLine />
       <div 
-        className="btn-toolbar justify-content-between mt-3 mx-1" 
+        className="btn-toolbar justify-content-between justify-content-sm-start mt-5 mx-2 mx-md-6 mb-2"
         role="toolbar" 
         aria-label="Sort Cards"
       >
@@ -164,11 +166,9 @@ export default function HomePage() {
       </div>
       <div className='container'>
         <div className='row justify-content-center'>
-          <div className='col-xs-12'>
-            {
-              displayArtCards()
-            }
-          </div>
+          {
+            displayArtCards()
+          }
         </div>
       </div>
     </div>

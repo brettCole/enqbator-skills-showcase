@@ -4,7 +4,7 @@ export default function SortButton({ myKey, filter, assignSortTitle, status, rem
     <button
       key={myKey}
       type="button" 
-      className={`btn btn-secondary ${status ? 'active' : ''}`}
+      className={`btn btn-secondary ms-md-4 ${status ? 'active' : ''}`}
       onClick={!status ? assignSortTitle : removeTitle}
     >
       {filter}
