@@ -56,7 +56,7 @@ export default function SectionDescription(
       >
         <DepartmentHeading id={`${removeCharacters(medium)}-section-1`} department={medium} />
         <LoremIpsum p={2} />
-        <DepartmentHeading id={`${removeCharacters(medium)}-sSection-2`} department={'Section 2'} />
+        <DepartmentHeading id={`${removeCharacters(medium)}-section-2`} department={'Section 2'} />
         <LoremIpsum p={2} />
       </div>
     </>
