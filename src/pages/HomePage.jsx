@@ -166,6 +166,7 @@ export default function HomePage() {
       </div>
       <div className='container'>
         <div className='row justify-content-center'>
+          {artWork.length === 0 && <h1>Loading...</h1>}
           {
             displayArtCards()
           }
