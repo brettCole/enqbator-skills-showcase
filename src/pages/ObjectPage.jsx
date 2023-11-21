@@ -102,7 +102,7 @@ export default function ObjectPage() {
           removeCharacters={removeUnwantedCharacters}
         />
         {/* For Large Screens */}
-        <div className='nav nav-pills nav-justified flex-column align-items-center mt-6 text-center col-lg-3 d-flex d-md-none d-lg-flex'>
+        <div className='nav nav-pills nav-justified flex-column align-items-center mt-6 text-center col-lg-3 d-none d-lg-flex'>
           <p>ON THIS PAGE</p>
           {
             Object.keys(sectionCount).map((count) => (
