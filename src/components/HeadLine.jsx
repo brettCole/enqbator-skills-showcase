@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link } from "wouter";
+import { Link, useParams } from "wouter";
 
 export default function HeadLine() {
   const [headlineImage, setHeadlineImage] = useState({});
+  const {objectID} = useParams();
 
   useEffect(() => {
     fetchHeadlineImage();
@@ -30,20 +31,23 @@ export default function HeadLine() {
     <div className="container-fluid px-0 mt-md-6">
       <div className="row gx-5 justify-content-center position-relative headline-row">
         <div className="col col-md-5 h-100 mw-100 z-3 ps-md-0 pe-md-1">
-          <div className="ps-4 ps-sm-5 px-md-3 pt-md-5 w-100 h-100">
+          <div className="ps-4 ps-sm-5 px-md-6 pt-md-5 w-100 h-100">
             {
-              !objectID &&
-                <>
-                  <h1 className="mt-5 mt-md-4 main-heading-details">Fine Art Gala</h1>
-                  <p className="lead main-heading-details">Come take a look at different pieces. See what catches your eye!</p>
-                </>
+              <>
+                <h1 className="mt-5 mt-md-4 main-heading-details">
+                  {headlineImage ? headlineImage.objectName : 'Fine Art Gala'}
+                </h1>
+                <p className="lead main-heading-details">
+                  {headlineImage ? headlineImage.department : 'Come take a look at different pieces. See what catches your eye!'}
+                </p>
+              </>
             }
             <Link href='/'>
               <button className="btn btn-secondary mt-3">Button</button>
             </Link>
           </div>
         </div>
-        <div className="col col-md-5 h-100 mw-100 position-absolute position-sm-relative ps-md-1 pe-md-0">
+        <div className="col col-md-5 h-100 mw-100 position-absolute position-sm-relative ps-md-0 pe-md-0">
           <img src={headlineImage.primaryImage} className="img-fluid h-100 rounded-0 rounded-md-4 mx-auto d-block" alt={headlineImage.objectName} />
         </div>
       </div>

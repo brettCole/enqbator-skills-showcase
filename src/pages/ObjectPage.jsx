@@ -9,6 +9,7 @@ export default function ObjectPage() {
   const [artObject, setArtObject] = useState({});
   const [tabName, setTabName] = useState('');
   const [sectionCount, setSectionCount] = useState(0);
+  const [sectionId, setSectionId] = useState('');
   const { objectID } = useParams();
 
   useEffect(() => {
@@ -47,7 +48,11 @@ export default function ObjectPage() {
   }
 
   const changeTabName = (e) => {
-    setTabName(e.target.textContent);
+    if (!e.target.textContent) {
+      setTabName('Tab');
+    } else {
+      setTabName(e.target.textContent);
+    }
   }
 
   const removeUnwantedCharacters = (str) => {
@@ -56,38 +61,63 @@ export default function ObjectPage() {
     }
   }
 
+  const toggleSectionId = (myKey) => {
+    setSectionId(myKey);
+  }
+
 
 // TODO create carousel for images 
   return (
     <div className='d-flex flex-column overflow-x-hidden'>
       <HeadLine />
-      <div>
+      <div className="mt-5">
         <TabBar 
           artDetails={artObject} 
           changeTab={changeTabName} 
           currentTab={tabName}
         />
         <hr className="d-sm-inline" />
-        <div className='nav nav-pills nav-justified flex-column align-items-center mt-3 text-center'>
+        {/* For Mobile Screens */}
+        <div className='nav nav-pills nav-justified flex-column align-items-center mt-3 text-center d-block d-md-block d-lg-none'>
           <p>ON THIS PAGE</p>
           {
             Object.keys(sectionCount).map((count) => (
               <SectionLink 
-                key={`sectionKey-${count}`} 
+                key={`sectionKey-${count}`}
+                myKey={`sectionKey-${count}`}
+                currentId={sectionId}
                 count={count}
                 currentTab={tabName}
                 removeCharacters={removeUnwantedCharacters}
+                toggleId={toggleSectionId}
               />
             ))
           }
         </div>
       </div>
-      <div id="tabBarContent" className="tab-content">
+      <div id="tabBarContent" className="tab-content col d-lg-flex flex-lg-row">
         <SectionDescription 
           artDetails={artObject}
           currentTab={tabName}
           removeCharacters={removeUnwantedCharacters}
         />
+        {/* For Large Screens */}
+        <div className='nav nav-pills nav-justified flex-column align-items-center mt-6 text-center col-lg-3 d-flex d-md-none d-lg-flex'>
+          <p>ON THIS PAGE</p>
+          {
+            Object.keys(sectionCount).map((count) => (
+              <SectionLink 
+                key={`sectionKey-${count}`}
+                myKey={`sectionKey-${count}`}
+                currentId={sectionId}
+                count={count}
+                currentTab={tabName}
+                removeCharacters={removeUnwantedCharacters}
+                toggleId={toggleSectionId}
+              />
+            ))
+          }
+        </div>
       </div>
     </div>
   )
